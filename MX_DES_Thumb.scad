@@ -50,7 +50,7 @@ mirror([0,0,0])keycap(
 //#translate([0,38,13])cube([18-5.7, 18-5.7,1],center = true);
 //echo(len(keyParameters));
 //Parameters
-wallthickness = 2; // 1.5 for norm, 1.25 for cast master
+wallthickness = 1.5; // 1.5 for norm, 1.25 for cast master
 topthickness  = 2.5;   // 3 for norm, 2.5 for cast master
 stepsize      = 50;  //resolution of Trajectory
 step          = 6;   //resolution of ellipes 
@@ -58,7 +58,7 @@ fn            = 16;  //resolution of Rounded Rectangles: 60 for output
 layers        = 40;  //resolution of vertical Sweep: 50 for output
 dotRadius     = 1.25;   //home dot size
 //---Stem param
-Tol    = 0.10;
+Tol    = 0;
 stemRot = 0;
 stemWid = 7.2;
 stemLen = 5.5;
@@ -75,7 +75,7 @@ keyParameters = //keyParameters[KeyID][ParameterID]
     [17.16,  17.16,     4, 	   5,   11,    0,    0,   -0,     5,     0,   2,   2,      1,      5,      1,      3,     2,       2], //R5  corne thumb
     [17.16,  17.16,     4, 	   6,   13,    0,    0,   -0,    10,    15,   2,   2,      1,      5,      1,      2,     2,       2], //R5  corne thumb
 //Low profile corne thumb
-    [17.16,  26.66,     6, 	   7, 9.0,    0,    0,    -8,    10,    -5,   2,   2,      1,   4.85,      1,      3,     2,       2], //T1R5  external rot 3
+    [17.16,  17.16,     4, 	   5, 9.5,    0,    0,    -8,    -5,    -15,   2,   2,      1,   4.85,      1,      3,     2,       2], //T1R5  external rot 3
     [17.16,  26.66,     6, 	   7, 9.0,    0,    0,    -8,    10,    -0,   2,   2,      1,   4.85,      1,      3,     2,       2], //T1R5  nuetral 
     [17.16,  26.66,     6, 	   7, 9.0,    0,    0,    -8,    10,     5,   2,   2,      1,   4.85,      1,      3,     2,       2], //T1R5  internal rot Corne thumb
     [17.16,  17.16,     4, 	   5, 10.,    0,    0,   -12,     5,     0,   2,   2,      1,      5,      1,      3,     2,       2], //R5  corne thumb
@@ -110,7 +110,7 @@ dishParameters = //dishParameter[keyID][ParameterID]
   [   5,  4.3,   -2,  -48,      5,      2,  10.5,    10,     2,        6,    4,   13,  -30,   10.5,    18,     2], //R5
   [   5,  4.3,   -2,  -48,      4,    1.9,    11,    12,     2,        6,    4,   13,  -35,     11,    28,     2], //R5
   
-  [ 8.5,  5.0,    7,  -39,      4,    1.9,   9.5,    15,     2,       10,    4,    8,  -30,    9.5,    20,     2], //R5
+  [ 5,    4.8,    5,  -48,      4,    2.0,   9.5,    10,     2,       10,    4,   13,  -30,    9.5,    20,     2], //R5
   [ 8.3,  5.0,    7,  -39,      4,    1.9,   9.5,    15,     2,       10,    4,    8,  -30,    9.5,    20,     2], //R5
   [ 8.5,  5.0,    7,  -39,      4,    1.9,   9.5,    15,     2,       10,    4,    8,  -30,    9.5,    20,     2], //R5
   [   5,  4.8,    5,  -48,      5,    2.2,  10.5,    10,     2,        6,    4,   13,  -30,   10.5,    18,     2], //R5
@@ -271,7 +271,7 @@ function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))
 
 
 ///----- KEY Builder Module
-module keycap(keyID = 0, cutLen = 0, visualizeDish = false, rossSection = false, Dish = true, Stem = false, crossSection = true,Legends = false, homeDot = false, Stab = 0) {
+module thumb_keycap(keyID = 0, cutLen = 0, visualizeDish = false, rossSection = false, Dish = true, Stem = false, crossSection = true,Legends = false, homeDot = false, Stab = 0) {
   
   //Set Parameters for dish shape
   FrontPath = quantize_trajectories(FrontTrajectory(keyID), steps = stepsize, loop=false, start_position= $t*4);

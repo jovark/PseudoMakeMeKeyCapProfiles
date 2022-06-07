@@ -25,7 +25,7 @@ mirror([0,0,0])keycap(
  
 //#translate([0,38,13])cube([18-5.7, 18-5.7,1],center = true);
 //Parameters
-wallthickness = 2.0; // 1.5 for norm, 1.25 for cast master
+wallthickness = 1.5; // 1.5 for norm, 1.25 for cast master
 topthickness  = 2.5;   // 3 for norm, 2.5 for cast master
 stepsize      = 40;  //resolution of Trajectory
 step          = 6;   //resolution of ellipes 
@@ -33,7 +33,7 @@ fn            = 16;  //resolution of Rounded Rectangles: 60 for output
 layers        = 40;  //resolution of vertical Sweep: 50 for output
 dotRadius     = 0.55;   //home dot size
 //---Stem param
-Tol    = 0.10;
+Tol    = 0;
 stemRot = 0;
 stemWid = 7.55;
 stemLen = 5.55 ;
