@@ -87,14 +87,14 @@ module genside(layout) {
 	}
 }
 
-translate([19, 0, 0])genside(teclassioR1);
-mirror([5*19, 0, 0]) genside(teclassioR1);
+/* translate([19, 0, 0])genside(teclassioR1); */
+/* mirror([5*19, 0, 0]) genside(teclassioR1); */
 
 /* translate([19, 0, 0])genside(teclassioR2); */
 /* mirror([5*19, 0, 0]) genside(teclassioR2); */
 
-/* translate([19, 0, 0])genside(teclassioR3); */
-/* mirror([5*19, 0, 0]) genside(teclassioR3); */
+translate([19, 0, 0])genside(teclassioR3);
+mirror([5*19, 0, 0]) genside(teclassioR3);
 
 /* translate([19, 0, 0])genside(teclassioThumb); */
 /* mirror([5*19, 0, 0]) genside(teclassioThumb); */
