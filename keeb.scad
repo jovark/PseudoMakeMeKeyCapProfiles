@@ -26,25 +26,28 @@ teclassioThumb = [
   [],
   [],
   [],
-  [3, 6, 7, -1, -1],
+  [7, 6, 3, -1, -1],
 ];
 
 $radious = 0.75;
 
 module mjf_supports(layout, row, column, size) {
 	extra_side = 3.5;
+	extra_heigt = 0.1;
 	$fn = 16;
 
-	translate([0,0,$radious]) {
-		translate([$radious, -size/2 + $radious - 0.45, -$radious * 3])
-			rotate([180,90,0])
-			cylinder(h=size + extra_side,r=$radious);
-		/* translate([0, -size/2 + $radious*2, -$radious * 3]) */
-		/* 	rotate([90,90,0]) */
-		/* 	cylinder(h=(row != 0 ? (size + extra_side) : 0),r=$radious); */
-		translate([0, -size/2 + $radious - 0.45, -$radious])
-			rotate([0,180,0])
-			cylinder(h=$radious * 2,r=$radious);
+	color("red") {
+		translate([0,0,$radious]) {
+			translate([$radious, -size/2 + $radious - 0.45, -$radious * 3])
+				rotate([180,90,0])
+				cylinder(h=size + extra_side,r=$radious);
+			/* translate([0, -size/2 + $radious*2, -$radious * 3]) */
+			/* 	rotate([90,90,0]) */
+			/* 	cylinder(h=(row != 0 ? (size + extra_side) : 0),r=$radious); */
+			translate([0, -size/2 + $radious - 0.45, -$radious + extra_heigt])
+				rotate([0,180,0])
+				cylinder(h=$radious * 2 + extra_heigt,r=$radious);
+		}
 	}
 	children();
 }
@@ -56,6 +59,7 @@ module genside(layout) {
 				if (idx > 2) {
 				  translate([19*idy, 19*idx])
 				  mjf_supports(layout=layout,size=17.16, row=idx, column=idy)
+				  rotate([0,0,180])
 				  thumb_keycap(
 					  keyID  = layout[idx][idy], 
 					  cutLen = 0, //Don't change. for chopped caps
@@ -87,14 +91,22 @@ module genside(layout) {
 	}
 }
 
-/* translate([19, 0, 0])genside(teclassioR1); */
-/* mirror([5*19, 0, 0]) genside(teclassioR1); */
+if (row == "r1") {
+	translate([19, 0, 0])genside(teclassioR1);
+	mirror([5*19, 0, 0]) genside(teclassioR1);
+}
 
-/* translate([19, 0, 0])genside(teclassioR2); */
-/* mirror([5*19, 0, 0]) genside(teclassioR2); */
+if (row == "r2") {
+	translate([19, 0, 0])genside(teclassioR2);
+	mirror([5*19, 0, 0]) genside(teclassioR2);
+}
 
-translate([19, 0, 0])genside(teclassioR3);
-mirror([5*19, 0, 0]) genside(teclassioR3);
+if (row == "r3") {
+	translate([19, 0, 0])genside(teclassioR3);
+	mirror([5*19, 0, 0]) genside(teclassioR3);
+}
 
-/* translate([19, 0, 0])genside(teclassioThumb); */
-/* mirror([5*19, 0, 0]) genside(teclassioThumb); */
+if (row == "thumb") {
+	translate([19, 0, 0])genside(teclassioThumb);
+	mirror([5*19, 0, 0]) genside(teclassioThumb);
+}
