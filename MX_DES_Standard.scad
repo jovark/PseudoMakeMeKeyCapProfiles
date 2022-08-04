@@ -1,10 +1,10 @@
- use <scad-utils/morphology.scad> //for cheaper minwoski 
-use <scad-utils/transformations.scad>
-use <scad-utils/shapes.scad>
-use <scad-utils/trajectory.scad>
-use <scad-utils/trajectory_path.scad>
-use <sweep.scad>
-use <skin.scad>  
+use <./lib/scad-utils/morphology.scad> //for cheaper minwoski 
+use <./lib/scad-utils/transformations.scad>
+use <./lib/scad-utils/shapes.scad>
+use <./lib/scad-utils/trajectory.scad>
+use <./lib/scad-utils/trajectory_path.scad>
+use <./lib/sweep.scad>
+use <./lib/skin.scad>  
 //use <z-butt.scad>
 
 /*DES (Distorted Elliptical Saddle) Sculpted Profile for 6x3 and corne thumb 
@@ -26,11 +26,11 @@ mirror([0,0,0])keycap(
 //#translate([0,38,13])cube([18-5.7, 18-5.7,1],center = true);
 //Parameters
 wallthickness = 1.5; // 1.5 for norm, 1.25 for cast master
-topthickness  = 2.5;   // 3 for norm, 2.5 for cast master
+topthickness  = 3;   // 3 for norm, 2.5 for cast master
 stepsize      = 40;  //resolution of Trajectory
 step          = 6;   //resolution of ellipes 
-fn            = 16;  //resolution of Rounded Rectangles: 60 for output
-layers        = 40;  //resolution of vertical Sweep: 50 for output
+fn            = 60;  //resolution of Rounded Rectangles: 60 for output
+layers        = 50;  //resolution of vertical Sweep: 50 for output
 dotRadius     = 0.55;   //home dot size
 //---Stem param
 Tol    = 0;

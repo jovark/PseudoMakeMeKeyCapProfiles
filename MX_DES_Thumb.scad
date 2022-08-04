@@ -1,17 +1,17 @@
-use <scad-utils/morphology.scad> //for cheaper minwoski 
-use <scad-utils/transformations.scad>
-use <scad-utils/shapes.scad>
-use <scad-utils/trajectory.scad>
-use <scad-utils/trajectory_path.scad>
-use <sweep.scad>
-use <skin.scad>  
+use <./lib/scad-utils/morphology.scad> //for cheaper minwoski 
+use <./lib/scad-utils/transformations.scad>
+use <./lib/scad-utils/shapes.scad>
+use <./lib/scad-utils/trajectory.scad>
+use <./lib/scad-utils/trajectory_path.scad>
+use <./lib/sweep.scad>
+use <./lib/skin.scad>  
 
 /*DES (Distorted Elliptical Saddle) Sculpted Profile for 6x3 and corne thumb 
 Version 2: Eliptical Rectangle
 
 */
-mirror([0,0,0])keycap(
-  keyID  = 3, //change profile refer to KeyParameters Struct
+mirror([0,0,0])thumb_keycap(
+  keyID  = 1, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
   Dish   = true, //turn on dish cut
@@ -51,11 +51,11 @@ mirror([0,0,0])keycap(
 //echo(len(keyParameters));
 //Parameters
 wallthickness = 1.5; // 1.5 for norm, 1.25 for cast master
-topthickness  = 2.5;   // 3 for norm, 2.5 for cast master
+topthickness  = 3;   // 3 for norm, 2.5 for cast master
 stepsize      = 50;  //resolution of Trajectory
 step          = 6;   //resolution of ellipes 
-fn            = 16;  //resolution of Rounded Rectangles: 60 for output
-layers        = 40;  //resolution of vertical Sweep: 50 for output
+fn            = 60;  //resolution of Rounded Rectangles: 60 for output
+layers        = 50;  //resolution of vertical Sweep: 50 for output
 dotRadius     = 1.25;   //home dot size
 //---Stem param
 Tol    = 0;

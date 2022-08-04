@@ -1,10 +1,10 @@
-use <scad-utils/morphology.scad> //for cheaper minwoski 
-use <scad-utils/transformations.scad>
-use <scad-utils/shapes.scad>
-use <scad-utils/trajectory.scad>
-use <scad-utils/trajectory_path.scad>
-use <sweep.scad>
-use <skin.scad> 
+use <./lib/scad-utils/morphology.scad> //for cheaper minwoski 
+use <./lib/scad-utils/transformations.scad>
+use <./lib/scad-utils/shapes.scad>
+use <./lib/scad-utils/trajectory.scad>
+use <./lib/scad-utils/trajectory_path.scad>
+use <./lib/sweep.scad>
+use <./lib/skin.scad> 
 //use <z-butt.scad> 
 
 //Choc Chord version Chicago Stenographer
@@ -25,11 +25,11 @@ keycap(
 
 //-Parameters
 wallthickness = 1.1; // 1.75 for mx size, 1.1
-topthickness = 2.5; //2 for phat 3 for chicago
+topthickness = 3; //2 for phat 3 for chicago
 stepsize = 50;  //resolution of Trajectory
 step = 2;       //resolution of ellipes 
-fn = 32;          //resolution of Rounded Rectangles: 60 for output
-layers = 40;    //resolution of vertical Sweep: 50 for output
+fn = 60;          //resolution of Rounded Rectangles: 60 for output
+layers = 50;    //resolution of vertical Sweep: 50 for output
 
 //---Stem param
 slop    = 0.3;

@@ -1,10 +1,10 @@
-use <scad-utils/morphology.scad> //for cheaper minwoski 
-use <scad-utils/transformations.scad>
-use <scad-utils/shapes.scad>
-use <scad-utils/trajectory.scad>
-use <scad-utils/trajectory_path.scad>
-use <sweep.scad>
-use <skin.scad>  
+use <./lib/scad-utils/morphology.scad> //for cheaper minwoski 
+use <./lib/scad-utils/transformations.scad>
+use <./lib/scad-utils/shapes.scad>
+use <./lib/scad-utils/trajectory.scad>
+use <./lib/scad-utils/trajectory_path.scad>
+use <./lib/sweep.scad>
+use <./lib/skin.scad>  
 
 /*DES (Distorted Elliptical Saddle) Sculpted Profile
 Version 2: Eliptical Rectangle
@@ -12,7 +12,7 @@ Version 2: Eliptical Rectangle
 
 //NOTE: with sweep cuts, top surface may not be visible in review, it should be visible once rendered
 
-mirror([0,0,0])keycap(
+mirror([0,0,0])convex_keycap(
   keyID  = 4, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
@@ -241,7 +241,7 @@ function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))
 
 
 ///----- KEY Builder Module
-module keycap(keyID = 0, cutLen = 0, visualizeDish = false, rossSection = false, Dish = true, Stem = false, homeDot = false, Stab = 0) {
+module convex_keycap(keyID = 0, cutLen = 0, visualizeDish = false, rossSection = false, Dish = true, Stem = false, homeDot = false, Stab = 0) {
   
   //Set Parameters for dish shape
   FrontPath = quantize_trajectories(FrontTrajectory(keyID), steps = stepsize, loop=false, start_position= $t*4);

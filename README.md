@@ -2,12 +2,17 @@
 
 ## How to
 * make sure OpenSCAD is up to date.
-* unzip libraries.zip into your OpenSCAD libraries
 * select keycap you want to render by changing KeyID value
 * change KeyID to corresponding Parameter ID
 * press F5 to review
 * press F6 to render
 * press F7 to export as STL
+
+## Generating stl's for SLS/SLA/MJF printing
+* Edit `keeb.scad` to your liking
+* run `make clean all` to generate all rows
+* upload stl's in the `./stl` directory
+* profit
 
 #Some notes on
 ## Distorted Ellipsoidal Saddle (DES)
