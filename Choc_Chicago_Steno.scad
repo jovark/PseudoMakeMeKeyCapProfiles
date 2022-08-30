@@ -24,8 +24,8 @@ keycap(
   ); 
 
 //-Parameters
-wallthickness = 1.1; // 1.75 for mx size, 1.1
-topthickness = 3; //2 for phat 3 for chicago
+wallthickness = 1.2; // 1.75 for mx size, 1.1
+topthickness = 2; //2 for phat 3 for chicago
 stepsize = 50;  //resolution of Trajectory
 step = 2;       //resolution of ellipes 
 fn = 60;          //resolution of Rounded Rectangles: 60 for output
@@ -39,7 +39,7 @@ stemLen = 6;
 stemCrossHeight = 1.8;
 extra_vertical = 0.6;
 stemLayers = 50; //resolution of stem to cap top transition
-//#cube([18.16, 18.16, 10], center = true); // sanity check border
+/* #cube([18.00, 17.00, 10], center = true); // sanity check border */
 
 //injection param
 draftAngle = 0; //degree  note:Stem Only

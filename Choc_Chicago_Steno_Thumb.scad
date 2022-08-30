@@ -9,7 +9,7 @@ use <./lib/skin.scad>
 // Choc Chord version Chicago Stenographer with sculpte Thumb cluter
 // change stemrot 
 
-mirror([1,0,0])keycap(
+mirror([1,0,0])thumb_keycap(
   keyID   = 1, //change profile refer to KeyParameters Struct
   cutLen  = 0, //Don't change. for chopped caps
   Stem    = true, //tusn on shell and stems
@@ -323,7 +323,7 @@ function TanTransition(t, keyID) = pow(t/stepsize,TanArcExpo(keyID) )*Transition
 
 
 ///----- KEY Builder Module
-module keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false, Dish = true, SecondaryDish = false, Stem = false, StemRot = 0, homeDot = false, Stab = 0, Legends = false) {
+module thumb_keycap(keyID = 0, cutLen = 0, visualizeDish = false, crossSection = false, Dish = true, SecondaryDish = false, Stem = false, StemRot = 0, homeDot = false, Stab = 0, Legends = false) {
   
   //Set Parameters for dish shape
   FrontPath = quantize_trajectories(FrontTrajectory(keyID), steps = stepsize, loop=false, start_position= $t*4);

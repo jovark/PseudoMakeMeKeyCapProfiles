@@ -9,7 +9,7 @@ use <./lib/skin.scad>
 
 //NOTE: with sweep cuts, top surface may not be visible in review, it should be visible once rendered
 
-mirror([0,0,0])keycap(
+mirror([0,0,0])convex_keycap(
   keyID  = 1, //change profile refer to KeyParameters Struct
   cutLen = 0, //Don't change. for chopped caps
   Stem   = true, //tusn on shell and stems
@@ -23,15 +23,15 @@ mirror([0,0,0])keycap(
 ); 
 
 //Parameters
-wallthickness = 1.2;   
+wallthickness = 1.2; 
 topthickness  = 2;   //
 stepsize      = 50;  //resolution of Trajectory
 step          = 1;   //resolution of ellipes 
-fn            = 32;  //resolution of Rounded Rectangles: 60 for output
-layers        = 40;  //resolution of vertical Sweep: 50 for output
+fn            = 60;  //resolution of Rounded Rectangles: 60 for output
+layers        = 50;  //resolution of vertical Sweep: 50 for output
 dotRadius     = 1.25;   //home dot size
 //---Stem param
-slop    = 0.25;
+slop    = 0.3;
 stemWid = 8;
 stemLen = 6;
 stemCrossHeight = 1.8;
@@ -216,7 +216,7 @@ function StemRadius(t, keyID) = pow(t/stemLayers,3)*3 + (1-pow(t/stemLayers, 3))
 
 
 ///----- KEY Builder Module
-module keycap(keyID = 0, cutLen = 0, visualizeDish = false, csrossSection = false, Dish = true, Stem = false,StemRot = 0, homeDot = false, Stab = 0) {
+module convex_keycap(keyID = 0, cutLen = 0, visualizeDish = false, csrossSection = false, Dish = true, Stem = false,StemRot = 0, homeDot = false, Stab = 0) {
   
   //Set Parameters for dish shape
   FrontPath = quantize_trajectories(FrontTrajectory(keyID), steps = stepsize, loop=false, start_position= $t*4);
