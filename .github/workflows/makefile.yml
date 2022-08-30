@@ -19,3 +19,8 @@ jobs:
       
     - name: Install dependencies
       run: make lp
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: stls
+        path: stl
