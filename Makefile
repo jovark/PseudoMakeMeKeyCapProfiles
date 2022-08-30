@@ -1,6 +1,6 @@
 DESTDIR = stl
 
-OPENSCAD_CMD = openscad --export-format binstl
+OPENSCAD_CMD = openscad
 
 mx: r1.stl r2.stl r3.stl thumb.stl
 lp: lr2.stl lr3.stl lthumb.stl
