@@ -18,7 +18,7 @@ jobs:
       run: sudo apt install -y openscad
       
     - name: Render stls
-      run: make -j3 lp
+      run: make lp
 
     - uses: actions/upload-artifact@v3
       with:
