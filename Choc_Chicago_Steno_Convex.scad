@@ -23,7 +23,7 @@ mirror([0,0,0])convex_keycap(
 ); 
 
 //Parameters
-wallthickness = 1.2; 
+wallthickness = 1;
 topthickness  = 2;   //
 stepsize      = 50;  //resolution of Trajectory
 step          = 1;   //resolution of ellipes 

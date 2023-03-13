@@ -23,12 +23,12 @@ mirror([1,0,0])thumb_keycap(
 ); 
 
 //-Parameters
-wallthickness = 1.1; // 1.75 for mx size, 1.1
-topthickness = 2.5; //2 for phat 3 for chicago
+wallthickness = 1; // 1.75 for mx size, 1.1
+topthickness = 2; //2 for phat 3 for chicago
 stepsize = 40;  //resolution of Trajectory
-step =2;       //resolution of ellipes 
-fn = 32;          //resolution of Rounded Rectangles: 60 for output
-layers = 40;    //resolution of vertical Sweep: 50 for output
+step = 2;       //resolution of ellipes 
+fn = 60;          //resolution of Rounded Rectangles: 60 for output
+layers = 50;    //resolution of vertical Sweep: 50 for output
 
 //---Stem param
 slop    = 0.3;

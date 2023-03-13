@@ -24,7 +24,7 @@ keycap(
   ); 
 
 //-Parameters
-wallthickness = 1.2; // 1.75 for mx size, 1.1
+wallthickness = 1; // 1.75 for mx size, 1.1
 topthickness = 2; //2 for phat 3 for chicago
 stepsize = 50;  //resolution of Trajectory
 step = 2;       //resolution of ellipes 
