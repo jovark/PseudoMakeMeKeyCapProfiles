@@ -206,9 +206,4 @@ module generate_ldsa_keycaps(type = "alpha", row) {
 }
 
 
-/* generate_ldsa_keycaps("homing"); */
-
-// import("ldsa/LDSA_Keycap_1u.stl");
-// import("ldsa/LDSA_Thumb_1u.stl");
-
-// color("red", 0.5) cube([18, 17, 5], center=true);
+generate_ldsa_keycaps("homing");
