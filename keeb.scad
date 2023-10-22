@@ -1,11 +1,20 @@
 use <./MX_DES_Standard.scad>
 use <./MX_DES_Thumb.scad>
 
+R0 = [
+      [4, 4, -1, -1, -1],
+      [],
+      [],
+      [],
+      []
+      ];
+
 R1 = [
       [0, 0, 0, 0, 0],
       [],
       [],
       [],
+      []
       ];
 
 R2 = [
@@ -13,6 +22,7 @@ R2 = [
       [1, 3, 1, 1, 1],
       [],
       [],
+      []
       ];
 
 R3 = [
@@ -20,15 +30,24 @@ R3 = [
       [],
       [2, 2, 2, 2, 2],
       [],
+      []
+      ];
+      
+R4 = [
+      [],
+      [],
+      [],
+      [5, 5, 5, 5, 5],
+      []
       ];
 
 Thumb = [
-	 [],
-	 [],
-	 [],
-	 [7, 6, 3, -1, -1],
-	 ];
-
+      [],
+	  [],
+	  [],
+      [],
+	  [7, 6, 3, -1, -1],
+	  ];
 
 /* Disable support generation */
 gen_support = 1;
@@ -59,7 +78,7 @@ module genside(layout) {
   for ( idx = [ 0 : 1 : len(layout) - 1]) {
     for ( idy = [ 0 : 1 : len(layout[idx]) - 1]) {
       if (layout[idx][idy] > -1) {
-	if (idx > 2) {
+	if (idx > 3) {
 	  translate([19*idy, 19*idx])
 	    mjf_supports(layout=layout,size=17.16, gen_support=gen_support)
 	  rotate([0,0,180])
@@ -96,6 +115,11 @@ module genside(layout) {
 
 row = is_undef(row) ? "r1" : row;
 
+if (row == "r0") {
+  translate([19, 0, 0])genside(R0);
+  mirror([5*19, 0, 0]) genside(R0);
+ }
+
 if (row == "r1") {
   translate([19, 0, 0])genside(R1);
   mirror([5*19, 0, 0]) genside(R1);
@@ -109,6 +133,11 @@ if (row == "r2") {
 if (row == "r3") {
   translate([19, 0, 0])genside(R3);
   mirror([5*19, 0, 0]) genside(R3);
+ }
+
+if (row == "r4") {
+  translate([19, 0, 0])genside(R4);
+  mirror([5*19, 0, 0]) genside(R4);
  }
 
 if (row == "thumb") {
